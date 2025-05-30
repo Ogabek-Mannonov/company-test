@@ -1,0 +1,18 @@
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content {
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.with-sidebar {
+  margin-left: 220px; /* Sidebar kengligi bilan teng */
+  padding-top: 20px;
+  padding-right: 20px;
+}

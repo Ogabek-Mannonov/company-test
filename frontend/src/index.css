@@ -1,0 +1,314 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.register-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.register-form {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  width: 400px;
+  text-align: center;
+}
+
+.register-title {
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #764ba2;
+  box-shadow: 0 0 8px #a084ca;
+}
+
+.error-message {
+  color: #ff4d4f;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.success-message {
+  color: #52c41a;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.register-button {
+  width: 100%;
+  padding: 12px 0;
+  background: #764ba2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-button:hover {
+  background: #5a3578;
+}
+
+
+
+
+
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-form {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.login-title {
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #764ba2;
+  box-shadow: 0 0 8px #a084ca;
+}
+
+.error-message {
+  color: #ff4d4f;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px 0;
+  background: #764ba2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #5a3578;
+}
+
+
+
+.products-container {
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logout-button {
+  background: #764ba2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+  background: #5a3578;
+}
+
+.error-message {
+  color: #ff4d4f;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.product-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.input-field {
+  flex: 1 1 45%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #764ba2;
+  box-shadow: 0 0 8px #a084ca;
+}
+
+.add-button {
+  flex: 1 1 100%;
+  padding: 12px 0;
+  background: #764ba2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-button:hover {
+  background: #5a3578;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-item {
+  padding: 15px 20px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+
+
+.customers-container {
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.error-message {
+  color: #ff4d4f;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.customer-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.input-field {
+  flex: 1 1 45%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #764ba2;
+  box-shadow: 0 0 8px #a084ca;
+}
+
+.add-button {
+  flex: 1 1 100%;
+  padding: 12px 0;
+  background: #764ba2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-button:hover {
+  background: #5a3578;
+}
+
+.customer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.customer-item {
+  padding: 15px 20px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+
+
+
+
+

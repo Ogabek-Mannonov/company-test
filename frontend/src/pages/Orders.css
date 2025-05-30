@@ -1,0 +1,91 @@
+.orders-form {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.orders-form h2,
+.orders-form h3 {
+  color: #5a3578;
+  margin-bottom: 20px;
+}
+
+.orders-form label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.orders-form select,
+.orders-form input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.orders-form select:focus,
+.orders-form input[type="number"]:focus {
+  border-color: #764ba2;
+  outline: none;
+  box-shadow: 0 0 8px #a084ca;
+}
+
+.order-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.order-item select,
+.order-item input[type="number"] {
+  flex: 1 1 30%;
+}
+
+.remove-item-button {
+  background: #e74c3c;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  height: 40px;
+}
+
+.remove-item-button:hover {
+  background: #c0392b;
+}
+
+.add-item-button,
+.submit-button {
+  background: #764ba2;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.add-item-button:hover,
+.submit-button:hover {
+  background: #5a3578;
+}
