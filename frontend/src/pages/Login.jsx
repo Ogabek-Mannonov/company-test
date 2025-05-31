@@ -14,7 +14,7 @@ function Login() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password }); // backend URLni o'zgartir
+      const res = await axios.post('https://company-test-1.onrender.com/api/auth/login', { email, password });
       if (res.data.token) {
         localStorage.setItem('token', res.data.token);
         navigate('/products');

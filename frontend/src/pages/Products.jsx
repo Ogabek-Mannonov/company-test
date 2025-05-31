@@ -14,7 +14,7 @@ function Products() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products', {
+      const res = await axios.get('https://company-test-1.onrender.com/api/products', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProducts(res.data);
@@ -38,7 +38,7 @@ function Products() {
 
     try {
       await axios.post(
-        'http://localhost:5000/api/products',
+        'https://company-test-1.onrender.com/api/products',
         {
           name: form.name,
           description: form.description,
