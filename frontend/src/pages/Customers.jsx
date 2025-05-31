@@ -14,7 +14,7 @@ function Customers() {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/customers', {
+      const res = await axios.get('https://company-test-1.onrender.com/api/customers', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCustomers(res.data);
@@ -38,7 +38,7 @@ function Customers() {
 
     try {
       await axios.post(
-        'http://localhost:5000/api/customers',
+        'https://company-test-1.onrender.com/api/customers',
         {
           name: form.name,
           email: form.email,

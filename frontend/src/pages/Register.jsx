@@ -4,12 +4,17 @@ import { useNavigate, Link } from 'react-router-dom';
 import '../index.css';
 
 function Register() {
-  const [form, setForm] = useState({ username: '', email: '', password: '', passwordConfirm: '' });
+  const [form, setForm] = useState({
+    username: '',
+    email: '',
+    password: '',
+    passwordConfirm: ''
+  });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setError('');
     setSuccess('');
@@ -17,6 +22,8 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+    setSuccess('');
 
     if (form.password !== form.passwordConfirm) {
       setError('Parollar mos emas');
@@ -29,10 +36,8 @@ function Register() {
         email: form.email,
         password: form.password,
       });
-
       setSuccess('Ro‘yxatdan o‘tish muvaffaqiyatli! Endi tizimga kiring.');
       setForm({ username: '', email: '', password: '', passwordConfirm: '' });
-
       setTimeout(() => navigate('/login'), 2000);
     } catch (err) {
       setError(err.response?.data?.error || 'Ro‘yxatdan o‘tishda xatolik yuz berdi');
@@ -42,12 +47,12 @@ function Register() {
   return (
     <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
-        <h2 className="register-title">Ro‘yxatdan o‘tish</h2>
+        <h2>Ro‘yxatdan o‘tish</h2>
 
         <input
           type="text"
           name="username"
-          placeholder="Admin nomi"
+          placeholder="Foydalanuvchi nomi"
           value={form.username}
           onChange={handleChange}
           required
@@ -89,8 +94,8 @@ function Register() {
 
         <button type="submit" className="register-button">Ro‘yxatdan o‘tish</button>
 
-        <p className="redirect-text">
-          Hisobingiz bor? <Link to="/login">Tizimga kirish</Link>
+        <p>
+          Hisobingiz bor? <Link to="/login">Kirish</Link>
         </p>
       </form>
     </div>

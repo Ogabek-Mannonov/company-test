@@ -17,12 +17,12 @@ function Orders() {
 
   useEffect(() => {
     // Mijozlarni olish
-    axios.get('http://localhost:5000/api/customers', {
+    axios.get('https://company-test-1.onrender.com/api/customers', {
       headers: { Authorization: `Bearer ${token}` },
     }).then(res => setCustomers(res.data));
 
     // Mahsulotlarni olish
-    axios.get('http://localhost:5000/api/products', {
+    axios.get('https://company-test-1.onrender.com/api/products', {
       headers: { Authorization: `Bearer ${token}` },
     }).then(res => setProducts(res.data));
   }, [token]);
@@ -76,7 +76,7 @@ function Orders() {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/orders', {
+      await axios.post('https://company-test-1.onrender.com/api/orders', {
         customer_id: parseInt(form.customer_id),
         admin_id: 1, // backenddan olish kerak bo‘lsa o‘zgartiring
         status: form.status,

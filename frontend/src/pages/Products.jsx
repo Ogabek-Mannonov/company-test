@@ -15,7 +15,7 @@ function Products() {
   const fetchProducts = async () => {
     try {
       const res = await axios.get('http://localhost:5000/api/products', {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` }
       });
       setProducts(res.data);
     } catch (err) {
@@ -30,10 +30,12 @@ function Products() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
     if (!form.name || !form.price || !form.sku) {
       setError('Name, price va SKU majburiy');
       return;
     }
+
     try {
       await axios.post(
         'http://localhost:5000/api/products',
@@ -44,7 +46,7 @@ function Products() {
           sku: form.sku,
         },
         {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${token}` }
         }
       );
       setForm({ name: '', description: '', price: '', sku: '' });
@@ -63,7 +65,7 @@ function Products() {
     <div className="products-container">
       <div className="products-header">
         <h2>Mahsulotlar</h2>
-        <button className="logout-button" onClick={handleLogout}>Logout</button>
+        <button onClick={handleLogout} className="logout-button">Chiqish</button>
       </div>
 
       {error && <p className="error-message">{error}</p>}
@@ -72,7 +74,7 @@ function Products() {
         <input
           type="text"
           name="name"
-          placeholder="Name"
+          placeholder="Mahsulot nomi"
           value={form.name}
           onChange={handleChange}
           className="input-field"
@@ -81,7 +83,7 @@ function Products() {
         <input
           type="text"
           name="description"
-          placeholder="Description"
+          placeholder="Ta'rif"
           value={form.description}
           onChange={handleChange}
           className="input-field"
@@ -89,7 +91,7 @@ function Products() {
         <input
           type="number"
           name="price"
-          placeholder="Price"
+          placeholder="Narxi"
           value={form.price}
           onChange={handleChange}
           className="input-field"
@@ -98,24 +100,20 @@ function Products() {
         <input
           type="text"
           name="sku"
-          placeholder="SKU"
+          placeholder="SKU kodi"
           value={form.sku}
           onChange={handleChange}
           className="input-field"
           required
         />
-        <button type="submit" className="add-button">Add Product</button>
+        <button type="submit" className="add-button">Mahsulot qo‘shish</button>
       </form>
 
       <ul className="product-list">
         {products.map(prod => (
           <li key={prod.id} className="product-item">
-            <div>
-              <strong>{prod.name}</strong> — {prod.description}
-            </div>
-            <div>
-              <span>{prod.price} so‘m</span> | <span>SKU: {prod.sku}</span>
-            </div>
+            <div><strong>{prod.name}</strong> — {prod.description}</div>
+            <div>{prod.price} so‘m | SKU: {prod.sku}</div>
           </li>
         ))}
       </ul>
