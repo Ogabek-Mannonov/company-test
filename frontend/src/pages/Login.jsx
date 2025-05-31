@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import '../index.css';
 
-function Login() {
+function Login({ setToken }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -17,6 +16,7 @@ function Login() {
       const res = await axios.post('https://company-test-1.onrender.com/api/auth/login', { email, password });
       if (res.data.token) {
         localStorage.setItem('token', res.data.token);
+        setToken(res.data.token);  // tokenni global holatga saqlaymiz
         navigate('/products');
       } else {
         setError('Token kelmadi, login muvaffaqiyatsiz');
