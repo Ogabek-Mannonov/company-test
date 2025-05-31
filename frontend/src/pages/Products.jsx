@@ -9,8 +9,12 @@ function Products() {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    if (token) {
+      fetchProducts();
+    } else {
+      setError('Avtorizatsiya qilinmagan, iltimos login qiling');
+    }
+  }, [token]);
 
   const fetchProducts = async () => {
     try {
@@ -18,7 +22,9 @@ function Products() {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProducts(res.data);
+      setError('');
     } catch (err) {
+      console.error('Mahsulotlarni olish xatosi:', err);
       setError('Mahsulotlarni olishda xatolik yuz berdi');
     }
   };
@@ -33,6 +39,11 @@ function Products() {
 
     if (!form.name || !form.price || !form.sku) {
       setError('Name, price va SKU majburiy');
+      return;
+    }
+
+    if (!token) {
+      setError('Avtorizatsiya qilinmagan, iltimos login qiling');
       return;
     }
 
@@ -52,7 +63,8 @@ function Products() {
       setForm({ name: '', description: '', price: '', sku: '' });
       fetchProducts();
     } catch (err) {
-      setError(err.response?.data?.error || 'Mahsulot qo‘shishda xatolik');
+      console.error('Mahsulot qo‘shishda xato:', err);
+      setError(err.response?.data?.error || 'Mahsulot qo‘shishda xatolik yuz berdi');
     }
   };
 
@@ -96,6 +108,8 @@ function Products() {
           onChange={handleChange}
           className="input-field"
           required
+          step="0.01"
+          min="0"
         />
         <input
           type="text"
