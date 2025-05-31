@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Products from './pages/Products';
+import Customers from './pages/Customers';
+import CreateOrder from './pages/Orders';
+import OrdersList from './pages/OrdersList';
 
-import Sidebar from './components/Sidebar'; // Sidebar importi
-
-import './App.css'; // agar CSS bo‘lsa
+import Sidebar from './components/Sidebar';
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <Router>
-      {isLoggedIn && <Sidebar />} {/* Sidebar faqat tizimga kirganda ko‘rinadi */}
+      {isLoggedIn && <Sidebar setToken={setToken} />}
 
       <div className={isLoggedIn ? 'main-content with-sidebar' : 'main-content'}>
         <Routes>
@@ -40,6 +41,18 @@ function App() {
           <Route
             path="/products"
             element={isLoggedIn ? <Products /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/customers"
+            element={isLoggedIn ? <Customers /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/orders"
+            element={isLoggedIn ? <CreateOrder /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/orders-list"
+            element={isLoggedIn ? <OrdersList /> : <Navigate to="/login" replace />}
           />
           <Route
             path="*"
