@@ -12,10 +12,14 @@ function authMiddleware(req, res, next) {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.admin = decoded; // kerakli ma'lumotlarni qo'yish
+    req.admin = decoded; // token ichidagi ma'lumotlarni so‘rovga qo‘yish
     next();
   } catch (err) {
-    return res.status(401).json({ error: "Token noto'g'ri yoki muddati o'tgan" });
+    if (err.name === 'TokenExpiredError') {
+      return res.status(401).json({ error: 'Token muddati tugagan' });
+    } else {
+      return res.status(401).json({ error: "Token noto'g'ri yoki yaroqsiz" });
+    }
   }
 }
 
