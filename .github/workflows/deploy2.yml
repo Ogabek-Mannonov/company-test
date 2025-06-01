@@ -1,0 +1,24 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Render
+        env:
+          RENDER_KEY_API: ${{ secrets.RENDER_KEY_API }}
+          RENDER_BACKEND_ID: ${{ secrets.RENDER_BACKEND_ID }}
+          RENDER_FRONTEND_ID: ${{ secrets.RENDER_FRONTEND_ID }}
+        run: |
+          # Backend deploy
+          curl -X POST -H "Authorization: Bearer $RENDER_KEY_API" https://api.render.com/deploy/srv-$RENDER_BACKEND_ID
+          # Frontend deploy
+          curl -X POST -H "Authorization: Bearer $RENDER_KEY_API" https://api.render.com/deploy/srv-$RENDER_FRONTEND_ID
